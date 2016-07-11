@@ -88,6 +88,23 @@ NLSRTL Version 11.2.0.2.0 - Production
 SELECT * 
   FROM v$system_parameter;
 ```
+Result:
+```
+NAME                                     VALUE                                                                  DISPLAY_VALUE                            DESCRIPTION                                                                              
+---------------------------------------- ---------------------------------------------------------------------- ---------------------------------------- ------------------------------------------------------------------------------------------
+lock_name_space                                                                                                                                          lock name space used for generating lock names for standby/clone database                 
+processes                                100                                                                    100                                      user processes                                                                            
+sessions                                 172                                                                    172                                      user and system sessions                                                                  
+timed_statistics                         TRUE                                                                   TRUE                                     maintain internal timing statistics                                                       
+timed_os_statistics                      0                                                                      0                                        internal os statistic gathering interval in seconds                                       
+resource_limit                           FALSE                                                                  FALSE                                    master switch for resource limit                                                          
+license_max_sessions                     0                                                                      0                                        maximum number of non-system user sessions allowed                                        
+license_sessions_warning                 0                                                                      0                                        warning level for number of non-system user sessions                                      
+cpu_count                                4                                                                      4                                        number of CPUs for this instance                                                          
+
+```
+
+
 
 Some brief explanation of database general parameters: 
  
