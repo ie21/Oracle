@@ -10,6 +10,7 @@ Useful Oracle database commands, scripts, tips &amp; hacks
    - [How much space is free in all tablespaces?](#free-space)
    - [Database Administrators tasks](#database-administrators-tasks)
     - [Managing jobs](#jobs)
+    - [Export Backups](#backups)
   - [Usefull Views](#usefull-views)
    - [v$views](#vvvv)
 
