@@ -17,8 +17,17 @@ Also, I work with the database every day and I figured this would be useful to m
 ## Version information 
 This document is entirely writen in Markdown using MacDown.
 
+Tested on Oracle 11XE.  
+Tools: Oracle SQL Developer , SQL Plus 
+
+Download Oracle 11XE  
+Download Oracle SQL Developer
+
+
 
 ## Asking Questions
+
+Get to know your surroundings, ask questions and get feedback to understand what is going on. 
 
 ### Exploring The Database
 
@@ -154,6 +163,30 @@ SELECT SUM(VSIZE('columnname'))/1024/1024 MB
   FROM 'tablename'
 ```
 
+#### How to find the schema name and the DB user name from an active session?
+---------------------
+```sql
+SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV', 'CURRENT_SCHEMA') CURRENT_SCHEMA 
+  FROM dual;
+```
+
+**sys_context()** function returns the value of parameter associated with the context namespace. USERENV is an Oracle provided namespace that describes the current session. Check the table Predefined Parameters of Namespace USERENV for the list of parameters and the expected return values.
+
+#### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
+------------------------
+```sql
+SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') from DUAL;') a
+  FROM user_tab_columns 
+ WHERE data_type in ('CLOB','BLOB','RAW','NCLOB')
+ ORDER BY a;
+```
+
+**Example Output:**
+
+
+
+
+
 
 
 #### How to get the DDL for a given object? 
@@ -180,12 +213,28 @@ CREATE TABLE "PUBS"."BOOK"
   "BOOK_YTD_SALES" NUMBER(10,0), 
   "BOOK_COMMENTS" VARCHAR2(200), 
 
-"BOOK_DATE_PUBLISHED" DATE 
+"BOOK_DATE_PUBLISHED" DATE a
 ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 LOGGING 
 STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 
 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
 
 ```
+
+**Pro Tip:** 
+> Use SQL Developer to export object DDLs with point n click. 
+
+### How to get the Oracle server IP address? 
+--------------
+
+### How to find out if Java is installed and enabled? 
+------------
+
+### How to work with DB links? 
+#### List All DB Links
+#### Add new DB Link
+#### Sending queries over DB Links
+
+
 
 ### How many users are connected? 
 ---------------------------------------------------
@@ -208,18 +257,18 @@ FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
 
 ## Database Admin
 ### Managing Users
-#### How to show all Oracle users and their files? 
+### How to show all Oracle users and their files? 
 -----------------------------------------------------
 ```sql
 SELECT * 
   FROM dba_users;
 ```
 
-##### Add new user
-##### Grant Permissions 
-##### 
+### Add new user
+### Grant Permissions  
 ### Managing Jobs
-### Export & Backups 
+### Export & Backups
+#### expdp & impdp
 
 ## Resources 
 
