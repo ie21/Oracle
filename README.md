@@ -40,22 +40,25 @@ How to find out if the database instance is opened?
 What does it meen that a database instance is opened? 
 
 ```sql
-SELECT status 
-  FROM v$instance;
+SELECT instance_name,
+  instance_role,
+  host_name,
+  version,
+  startup_time,
+  status
+FROM v$instance;
 ```
 
-**Example output:**
+**Output:**
+
 ```
-STATUS     
-------------
-OPEN    
+INSTANCE_NAME    INSTANCE_ROLE      HOST_NAME                                                        VERSION           STARTUP_TIME STATUS     
+---------------- ------------------ ---------------------------------------------------------------- ----------------- ------------ ------------
+xe               PRIMARY_INSTANCE   DAVOR-PC                                                         11.2.0.2.0        02-JUL-16    OPEN        
 ```
 
- SQL>  SELECT INSTANCE_NAME, DATABASE_STATUS, INSTANCE_ROLE from v$instance; 
 
-> INSTANCE_NAME    DATABASE_STATUS   INSTANCE_ROLE
-> 
-> RGR01            ACTIVE            PRIMARY_INSTANCE
+
 
 #### What is the database name? 
 
