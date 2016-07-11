@@ -1,5 +1,12 @@
-### MANAGE SPACE & MEMORY
-#### How much free space is there in all tablespaces?
+# MANAGE SPACE & MEMORY
+## How much free space is there in all tablespaces?
+
+
+##
+
+sc
+
+
 
 ### How to find CPU usage by User?
 ```sql
@@ -70,3 +77,11 @@ AND a.username is not null
 AND b.value >0
 ORDER BY 3;
 ```
+
+
+
+# Projects:
+-----------
+
+SQL Script to get session data from application/database server and return in text format.
+- review other formats like XML, JSON
