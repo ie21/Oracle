@@ -74,7 +74,16 @@ SELECT *
   FROM v$version;
 ```
 
-
+Output:
+```
+BANNER                                                                         
+--------------------------------------------------------------------------------
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production       
+PL/SQL Release 11.2.0.2.0 - Production                                          
+CORE	11.2.0.2.0	Production                                                        
+TNS for 64-bit Windows: Version 11.2.0.2.0 - Production                         
+NLSRTL Version 11.2.0.2.0 - Production            
+```
 
 #### What are this Oracle database general parameters?
 ```sql
