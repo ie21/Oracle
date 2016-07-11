@@ -10,21 +10,24 @@ This document is being produced for repetition material for Oracle SQL Fundament
 
 ## Asking Questions
 
-### What is the database version? 
+What is the database version? 
+-----------------------------
 
 ```sql
 SELECT *
   FROM v$version;
 ```
  
-### What is the Database name? 
+What is the Database name? 
+--------------------------
 ```sql
 SELECT value 
   FROM v$system_parameter 
  WHERE name = 'db_name';
 ```
 
-### What are Oracle database general parameters?
+What are Oracle database general parameters?
+--------------------------------------------
 ```sql
 SELECT * 
   FROM v$system_parameter;
