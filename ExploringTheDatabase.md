@@ -29,7 +29,7 @@ xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 
 
 
-#### What is the database version?
+### Database version information
 
   ```sql
 SELECT *
@@ -59,7 +59,7 @@ TNS for 64-bit Windows:                  11.2.0.2.0                     Producti
 ```
 
 
-## Following command will list the components installed into database (see the sample result):
+### Following command will list the components installed into database
 ```sql
 select * from all_registry_banners;
 ```
@@ -79,7 +79,7 @@ Oracle Application Express Release 5.0.3.00.03 - Development
 
 
 
-#### What are this Oracle database general parameters?
+#### Listing  Oracle database general parameters
 ```sql
 SELECT name, value, description
   FROM v$system_parameter;
