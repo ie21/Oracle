@@ -45,6 +45,24 @@ SELECT SUM(VSIZE('columnname'))/1024/1024 MB
 
 
 
+### How to show all oracle users and their files? 
+Select * FROM dba_users
+
+### What tablespaces are available?
+select * from V$TABLESPACE
+
+### What tables are owned by user?
+SELECT table_owner, table_name from sys.all_synonyms where table_owner like 'xxx'
+
+### What is the database size?
+select sum(BYTES)/1024/1024 MB from DBA_EXTENTS
+
+### What is the size of the database data file? 
+select sum(bytes)/1024/1024 MB from dba_data_files
+
+
+
+
 ## Database Admin
 ### Managing Users
 ##### Add new user
