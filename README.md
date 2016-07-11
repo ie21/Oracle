@@ -9,7 +9,7 @@ This document is being produced for repetition material for Oracle SQL Fundament
 
 Also, I work with the database every day and I figured this would be useful to more people.
 
-## Version information
+### Version information
 This document is entirely writen in Markdown using MacDown on OX S and Aton on Windows using markdown preview and markdown-pdf plugins.
 
 Tested on Oracle 11XE.  
@@ -18,13 +18,25 @@ Tools: Oracle SQL Developer , SQL Plus
 Download Oracle 11XE  
 Download Oracle SQL Developer
 
-## Contributing
+### Structure
+The idea is to have a simple question following a solution in _SQL_ and an explanation
+
+Solution consists of:
+
+- SQL code
+- SQL code execution resoult
+- explanation
+- Additional links and resources
+
+ The narative idea of simple qquestion is to form a lead into a deeper layers of the database .
+
+### Contributing
 
 Feel free to join in and contribute interesting Oracle related information.
 
 Looking for contributors.
 
-## Asking Questions
+### Asking Questions
 
 Get to know your surroundings, ask questions and get feedback to understand what is going on.  
 
@@ -81,7 +93,7 @@ NLSRTL Version 11.2.0.2.0 - Production
 
 #### What are this Oracle database general parameters?
 ```sql
-SELECT *
+SELECT name, value, description
   FROM v$system_parameter;
 ```
 ```
