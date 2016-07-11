@@ -113,6 +113,31 @@ Some brief explanation of database general parameters:
 SELECT * 
   FROM nls_database_parameters;
 ```
+Result:
+```
+NLS_LANGUAGE                   AMERICAN       
+NLS_TERRITORY                  AMERICA        
+NLS_CURRENCY                   $              
+NLS_ISO_CURRENCY               AMERICA        
+NLS_NUMERIC_CHARACTERS         .,             
+NLS_CHARACTERSET               AL32UTF8       
+NLS_CALENDAR                   GREGORIAN      
+NLS_DATE_FORMAT                DD-MON-RR      
+NLS_DATE_LANGUAGE              AMERICAN       
+NLS_SORT                       BINARY         
+NLS_TIME_FORMAT                HH.MI.SSXFF AM 
+NLS_TIMESTAMP_FORMAT           DD-MON-RR HH.MI
+NLS_TIME_TZ_FORMAT             HH.MI.SSXFF AM 
+NLS_TIMESTAMP_TZ_FORMAT        DD-MON-RR HH.MI
+NLS_DUAL_CURRENCY              $              
+NLS_COMP                       BINARY         
+NLS_LENGTH_SEMANTICS           BYTE           
+NLS_NCHAR_CONV_EXCP            FALSE          
+NLS_NCHAR_CHARACTERSET         AL16UTF16      
+NLS_RDBMS_VERSION              11.2.0.2.0     
+```
+
+
 #### What is the database size?
 ```sql
 SELECT SUM(BYTES)/1024/1024 MB
