@@ -39,6 +39,7 @@ Get to know your surroundings, ask questions and get feedback to understand what
 How to find out if the database instance is opened?  
 What does it meen that a database instance is opened? 
 
+Query:
 ```sql
 SELECT instance_name,
   instance_role,
@@ -47,7 +48,7 @@ SELECT instance_name,
   status
 FROM v$instance;
 ```
-
+Result:
 ```
 INSTANCE_NAME    INSTANCE_ROLE      VERSION           STARTUP_TIME STATUS     
 ---------------- ------------------ ----------------- ------------ ------------
