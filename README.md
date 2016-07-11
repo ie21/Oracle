@@ -2,11 +2,6 @@
 Useful Oracle database commands, scripts, tips &amp; hacks
 
 
-[TOC]
-
-
-
-
 
 
 ## Introduction
@@ -14,7 +9,7 @@ This document is being produced for repetition material for Oracle SQL Fundament
 
 Also, I work with the database every day and I figured this would be useful to more people. 
 
-## Document information 
+## Version information 
 This document is entirely writen in Markdown using MacDown.
 
 Tested on Oracle 11XE.  
@@ -23,11 +18,16 @@ Tools: Oracle SQL Developer , SQL Plus
 Download Oracle 11XE  
 Download Oracle SQL Developer
 
+## Contributing
 
+Feel free to join in and contribute interesting Oracle related information. 
+
+Looking for contributors. 
 
 ## Asking Questions
 
-Get to know your surroundings, ask questions and get feedback to understand what is going on. 
+Get to know your surroundings, ask questions and get feedback to understand what is going on.  
+
 
 ### Exploring The Database
 -------------------------------------------
@@ -74,6 +74,10 @@ SELECT *
 SELECT * 
   FROM v$system_parameter;
 ```
+
+Some brief explanation of database general parameters: 
+ 
+**User** - Obviously the database user/schema 
 
 #### What is the Database Character Set Informations:
 ```sql
@@ -237,10 +241,9 @@ FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
 
 ## Database Admin
 ### MANAGE USERS
+--------------------------------------------
 #### How many users are connected? 
----------------------------------------------------
 #### How to show all Oracle users and their files? 
------------------------------------------------------
 ```sql
 SELECT * 
   FROM dba_users;
@@ -271,12 +274,6 @@ WHERE t.tablespace_name = d.tablespace_name AND
  
  
  
-
-### Who is blocking who? Find Locks.
----------------------------------------------------
-
-
-
 ### MANAGE NETWORKING
 #### How to get the Oracle server IP address? 
 #### How to show actual Oracle conections?  
@@ -375,8 +372,6 @@ select constraint_name, column_name from sys.all_cons_columns
 
 ### How to find CPU usage by User? 
 ```sql
-
-
 SELECT ss.username, 
 	   se.SID, 
 		VALUE/100 cpu_usage_seconds
@@ -391,6 +386,11 @@ SELECT ss.username,
 ORDER BY value DESC;
 ```
 
+**Output:**
+
+
+
+### Who is blocking who? Find Locks.
 
 ### How to work with DB links? 
 List All DB Links  
