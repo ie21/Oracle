@@ -5,7 +5,7 @@ Useful Oracle database commands, scripts, tips &amp; hacks
 
   - [Introduction](#introduction)
   - [Asking Questions]
-   - [What is the database version info?](#unn-dd)
+   - [What is the database version?](#unn-dd)
    - [How many users are connected right now?](#tst-tdd)
    - [How much space is free in all tablespaces?](#free-space)
 
