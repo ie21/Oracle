@@ -14,7 +14,7 @@ This document is being produced for repetition material for Oracle SQL Fundament
 
 Also, I work with the database every day and I figured this would be useful to more people. 
 
-## Version information 
+## Document information 
 This document is entirely writen in Markdown using MacDown.
 
 Tested on Oracle 11XE.  
