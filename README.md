@@ -90,17 +90,22 @@ SELECT *
 ```
 Result:
 ```
-NAME                                     VALUE                                                                  DISPLAY_VALUE                            DESCRIPTION                                                                              
----------------------------------------- ---------------------------------------------------------------------- ---------------------------------------- ------------------------------------------------------------------------------------------
-lock_name_space                                                                                                                                          lock name space used for generating lock names for standby/clone database                 
-processes                                100                                                                    100                                      user processes                                                                            
-sessions                                 172                                                                    172                                      user and system sessions                                                                  
-timed_statistics                         TRUE                                                                   TRUE                                     maintain internal timing statistics                                                       
-timed_os_statistics                      0                                                                      0                                        internal os statistic gathering interval in seconds                                       
-resource_limit                           FALSE                                                                  FALSE                                    master switch for resource limit                                                          
-license_max_sessions                     0                                                                      0                                        maximum number of non-system user sessions allowed                                        
-license_sessions_warning                 0                                                                      0                                        warning level for number of non-system user sessions                                      
-cpu_count                                4                                                                      4                                        number of CPUs for this instance                                                          
+NAME                                     VALUE                          DESCRIPTION                                                          
+---------------------------------------- ------------------------------ ----------------------------------------------------------------------
+lock_name_space                                                         lock name space used for generating lock names for standby/clone datab
+processes                                100                            user processes                                                        
+sessions                                 172                            user and system sessions                                              
+timed_statistics                         TRUE                           maintain internal timing statistics                                   
+timed_os_statistics                      0                              internal os statistic gathering interval in seconds                   
+resource_limit                           FALSE                          master switch for resource limit                                      
+license_max_sessions                     0                              maximum number of non-system user sessions allowed                    
+license_sessions_warning                 0                              warning level for number of non-system user sessions                  
+cpu_count                                4                              number of CPUs for this instance                                      
+instance_groups                                                         list of instance group names                                          
+event                                                                   debug event control - default null string                             
+sga_max_size                             1073741824                     max total SGA size                                                    
+use_large_pages                          TRUE                           Use hugepages if available (TRUE/FALSE/ONLY)                          
+pre_page_sga                             FALSE                          pre-page sga for process                                                                                  
 
 ```
 
