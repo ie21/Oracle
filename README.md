@@ -45,7 +45,12 @@ SELECT status
 ```
 
 **Example output:**
->
+```
+STATUS     
+------------
+OPEN    
+```
+
  SQL>  SELECT INSTANCE_NAME, DATABASE_STATUS, INSTANCE_ROLE from v$instance; 
 
 > INSTANCE_NAME    DATABASE_STATUS   INSTANCE_ROLE
