@@ -39,7 +39,6 @@ Get to know your surroundings, ask questions and get feedback to understand what
 How to find out if the database instance is opened?  
 What does it meen that a database instance is opened? 
 
-Query:
 ```sql
 SELECT instance_name,
   instance_role,
@@ -48,7 +47,7 @@ SELECT instance_name,
   status
 FROM v$instance;
 ```
-Result:
+
 ```
 INSTANCE_NAME    INSTANCE_ROLE      VERSION           STARTUP_TIME STATUS     
 ---------------- ------------------ ----------------- ------------ ------------
@@ -72,7 +71,6 @@ SELECT value
 SELECT *
   FROM v$version;
 ```
-
 ```
 BANNER                                                                         
 --------------------------------------------------------------------------------
@@ -88,7 +86,6 @@ NLSRTL Version 11.2.0.2.0 - Production
 SELECT * 
   FROM v$system_parameter;
 ```
-Result:
 ```
 NAME                                     VALUE           DESCRIPTION                            
 ---------------------------------------- --------------- ----------------------------------------
@@ -113,7 +110,6 @@ Some brief explanation of database general parameters:
 SELECT * 
   FROM nls_database_parameters;
 ```
-Result:
 ```
 NLS_LANGUAGE                   AMERICAN       
 NLS_TERRITORY                  AMERICA        
