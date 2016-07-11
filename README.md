@@ -48,8 +48,6 @@ SELECT instance_name,
 FROM v$instance;
 ```
 
-**Output:**
-
 ```
 INSTANCE_NAME    INSTANCE_ROLE      VERSION           STARTUP_TIME STATUS     
 ---------------- ------------------ ----------------- ------------ ------------
@@ -74,7 +72,6 @@ SELECT *
   FROM v$version;
 ```
 
-Output:
 ```
 BANNER                                                                         
 --------------------------------------------------------------------------------
