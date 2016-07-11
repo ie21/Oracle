@@ -33,6 +33,12 @@ SELECT *
   FROM v$system_parameter;
   ```
 
+•• Oracle SQL query over the view that shows database state:
+select * from v$instance
+•• Oracle SQL query that shows if database is opened
+select status from v$instance
+
+
 
 ### How many users are connected? 
 ### How much free space is there in all tablespaces? 
