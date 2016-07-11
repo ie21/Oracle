@@ -16,6 +16,20 @@ This document is being produced for repetition material for Oracle SQL Fundament
 SELECT *
   FROM v$version;
 ```
+ 
+### What is the Database name? 
+```sql
+SELECT value 
+  FROM v$system_parameter 
+ WHERE name = 'db_name';
+```
+
+### What are Oracle database general parameters?
+```sql
+SELECT * 
+  FROM v$system_parameter;
+  ```
+
 
 ### How many users are connected? 
 ### How much free space is there in all tablespaces? 
