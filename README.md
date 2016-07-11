@@ -413,6 +413,14 @@ select * from ALL_ALL_TABLES where upper(table_name) like '%XXX%'
 ```sql
 select * from product_component_version
 ```
+```
+PRODUCT                                  VERSION                        STATUS             
+---------------------------------------- ------------------------------ --------------------
+NLSRTL                                   11.2.0.2.0                     Production          
+Oracle Database 11g Express Edition      11.2.0.2.0                     64bit Production    
+PL/SQL                                   11.2.0.2.0                     Production          
+TNS for 64-bit Windows:                  11.2.0.2.0                     Production        
+```
 
 ### Oracle SQL query to know roles and roles privileges
 ```sql
