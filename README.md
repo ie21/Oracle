@@ -18,14 +18,47 @@ Useful Oracle database commands, scripts, tips &amp; hacks
 This document is being produced for repetition material for Oracle SQL Fundamentals and SQL Expert Exams. 
 
 ## Asking Questions
+
 ### What is the database version? 
 
 ```sql
-SELECT * FROM V$VERSION;
+SELECT *
+  FROM v$version;
 ```
 
+### How many users are connected? 
+### How much free space is there in all tablespaces? 
+### Who is blocking who? 
+### Does a table exist in current DB schema? 
+If you quickly need to determine if a table exists in your current DB schema. Consider this you *search*.
+
+```sql
+SELECT table_name
+  FROM user_tables
+ WHERE table_name = 'TABLE_NAME';
+  ```
+
+Alternatively you might want to user *WHERE LIKE* to broaden the search if not exactly sure of the table_name. 
+### Does a colum exist in a table?
+```sql
+SELECT column_name AS FOUND
+  FROM user_tab_cols
+ WHERE table_name = 'TABLE_NAME' AND column_name = 'COLUMN_NAME';
+  ```
+  
+
+
+
+
+
 ## Database Admin
-## 
+### Managing Users
+##### Add new user
+##### Grant Permissions 
+##### 
+### Managing Jobs
+### Export & Backups 
+
 ## Resources 
 
 Ask Tom - 
