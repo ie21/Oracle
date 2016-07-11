@@ -16,9 +16,15 @@ Useful Oracle database commands, scripts, tips &amp; hacks
    - [v$views](#vvvv)
 
 ## Introduction
+I'm ma<king this document in preparation for Oracle SQL Fundamental & SQL Expert exams. 
+
+## Asking Questions
 ## Database Admin
 ## 
 ## Resources 
+
+Ask Tom - 
+StackOverflow Oracle - 
 
 Ask questions, get anwsers: 
 
