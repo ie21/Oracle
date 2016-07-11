@@ -46,8 +46,11 @@ SELECT column_name AS FOUND
  WHERE table_name = 'TABLE_NAME' AND column_name = 'COLUMN_NAME';
   ```
   
-
-
+### How much memory is user by a colum in a table? 
+```sql
+SELECT SUM(VSIZE('columnname'))/1024/1024 MB 
+  FROM 'tablename'
+  ```
 
 
 
