@@ -21,7 +21,8 @@ Download Oracle SQL Developer
 ### Structure
 The idea is to have a simple question following a solution in _SQL_ and an explanation
 
-Solution consists of:
+Preface and context to the question. Should answer:
+ - what are we trying to achieve? What do we need to know from this?
 
 - SQL code
 - SQL code execution resoult
@@ -49,6 +50,8 @@ Get to know your surroundings, ask questions and get feedback to understand what
 
 #### Is the database open?
 
+ I collect useful columns like instance_name and version, as well as the database startup_time and current status.
+
 ```sql
 SELECT instance_name,
   instance_role,
@@ -67,13 +70,7 @@ xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 
 
 
-#### What is the database name?
 
-```sql
-SELECT value
-  FROM v$system_parameter
- WHERE name = 'db_name';
-```
 
 #### What is the database version?
 
@@ -113,9 +110,18 @@ license_sessions_warning                 0               warning level for numbe
 
 todo: table - Some brief explanation of database general parameters:
 
+#### What is the database name?
+
+```sql
+SELECT value
+  FROM v$system_parameter
+ WHERE name = 'db_name';
+```
 
 
-#### What is the Database Character Set Informations:
+
+
+#### How would you list the Database Character Set Informations?
 ```sql
 SELECT *
   FROM nls_database_parameters;
@@ -164,14 +170,24 @@ SELECT *
   FROM v$instance;
 ```
 
-#### What tablespaces are available?
+#### What tablespace are available?
 ```sql
 SELECT *
-  FROM v$tablespaces;
+  FROM v$tablespace;
 ```
 
-Example output:
-
+Sample output
+```
+TS# NAME                           INC BIG FLA ENC
+---------- ------------------------------ --- --- --- ---
+  0 SYSTEM                         YES NO  YES    
+  2 UNDOTBS1                       YES NO  YES    
+  1 SYSAUX                         YES NO  YES    
+  4 USERS                          YES NO  YES    
+  3 TEMP                           NO  NO  YES    
+  5 APEX_1655289364460851          YES NO  YES    
+  6 USER_DATA                      YES NO  YES    
+```
 
 
 
