@@ -31,7 +31,7 @@ xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 
 #### What is the database version?
 
-```sql
+  ```sql
 SELECT *
   FROM v$version;
 ```
@@ -57,6 +57,27 @@ Oracle Database 11g Express Edition      11.2.0.2.0                     64bit Pr
 PL/SQL                                   11.2.0.2.0                     Production
 TNS for 64-bit Windows:                  11.2.0.2.0                     Production
 ```
+
+
+## Following command will list the components installed into database (see the sample result):
+```sql
+select * from all_registry_banners;
+```
+```
+BANNER                                                                         
+--------------------------------------------------------------------------------
+Oracle Database Catalog Views Release 11.2.0.2.0 - 64bit Production             
+Oracle Database Packages and Types Release 11.2.0.2.0 - Development             
+Oracle Text Release 11.2.0.2.0 - Development                                    
+Oracle XML Database Version 11.2.0.2.0 - Development                            
+Oracle Application Express Release 5.0.3.00.03 - Development
+```
+
+
+
+
+
+
 
 #### What are this Oracle database general parameters?
 ```sql
@@ -87,6 +108,30 @@ SELECT value
   FROM v$system_parameter
  WHERE name = 'db_name';
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
