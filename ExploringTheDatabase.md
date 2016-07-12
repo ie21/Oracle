@@ -29,7 +29,7 @@ xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 
 
 
-### Database version information
+### List Database version information
 
   ```sql
 SELECT *
@@ -45,7 +45,7 @@ TNS for 64-bit Windows: Version 11.2.0.2.0 - Production
 NLSRTL Version 11.2.0.2.0 - Production
 ```
 
-### Oracle SQL query to know Oracle products installed and version number.
+### List installed Oracle products and version number.
 ```sql
 select * from product_component_version
 ```
@@ -59,7 +59,7 @@ TNS for 64-bit Windows:                  11.2.0.2.0                     Producti
 ```
 
 
-### Following command will list the components installed into database
+### List the installed database components
 ```sql
 select * from all_registry_banners;
 ```
@@ -74,12 +74,7 @@ Oracle Application Express Release 5.0.3.00.03 - Development
 ```
 
 
-
-
-
-
-
-#### Listing  Oracle database general parameters
+#### List Oracle database general parameters
 ```sql
 SELECT name, value, description
   FROM v$system_parameter;
@@ -99,44 +94,10 @@ license_sessions_warning                 0               warning level for numbe
 (cut)
 ```
 
-todo: table - Some brief explanation of database general parameters:
-
-#### What is the database name?
-
-```sql
-SELECT value
-  FROM v$system_parameter
- WHERE name = 'db_name';
-```
+Todo: Explain system parameters
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### How would you list the Database Character Set Informations?
+### Database Character Set Informations
 ```sql
 SELECT *
   FROM nls_database_parameters;
@@ -165,20 +126,6 @@ NLS_RDBMS_VERSION              11.2.0.2.0
 ```
 
 
-#### What is the database size?
-```sql
-SELECT SUM(BYTES)/1024/1024 MB
-  FROM dba_extents;
-```
-
-#### What is the size of the database data file?
-```sql
-SELECT SUM(bytes)/1024/1024 MB
-  FROM dba_data_files;
-```
-
-
-
 #### What is the current database state?
 ```sql
 SELECT *
@@ -205,16 +152,8 @@ TS# NAME                           INC BIG FLA ENC
 
 
 
-
 ### Exploring the user space and schemas
 ---------------------------------------------
-
-#### What tables are owned by user?
-```sql
-SELECT table_owner, table_name
-  FROM sys.all_synonyms
- WHERE table_owner LIKE 'xxx';
-```
 
 #### What tables are avaiable to the current user*?
 ```sql
@@ -239,21 +178,18 @@ SELECT table_name
  WHERE table_name = 'TABLE_NAME';
 ```
 
-Alternatively you might want to user *WHERE LIKE* to broaden the search if not exactly sure of the table_name.
-#### Does a colum exist in a table?
+Alternatively you might want to user *WHERE LIKE* to broaden the search if not exactly sure of the table_name.  
+
+### Does a colum exist in a table?
 ```sql
 SELECT column_name AS FOUND
   FROM user_tab_cols
  WHERE table_name = 'TABLE_NAME' AND column_name = 'COLUMN_NAME';
 ```
 
-#### How much memory is user by a colum in a table?
-```sql
-SELECT SUM(VSIZE('columnname'))/1024/1024 MB
-  FROM 'tablename'
-```
 
-#### How to find the schema name and the DB user name from an active session?
+
+### How to find the schema name and the DB user name from an active session?
 ```sql
 SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV', 'CURRENT_SCHEMA') CURRENT_SCHEMA
   FROM dual;
@@ -261,7 +197,7 @@ SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV
 
 **sys_context()** function returns the value of parameter associated with the context namespace. USERENV is an Oracle provided namespace that describes the current session. Check the table Predefined Parameters of Namespace USERENV for the list of parameters and the expected return values.
 
-#### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
+### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
 ```sql
 SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') from DUAL;') a
   FROM user_tab_columns
@@ -277,7 +213,7 @@ SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') 
 
 
 
-#### How to get the DDL for a given object?
+### How to get the DDL for a given object?
 ```sql
 SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
   FROM DUAL;
@@ -321,17 +257,6 @@ FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
 
 
 
-
-
-
-
-
-
-
-
-## Database Admin
-### MANAGE USERS
---------------------------------------------
 #### How many users are connected?
 #### How to show all Oracle users and their files?
 ```sql
@@ -346,34 +271,6 @@ SELECT *
 ### How to find out if Java is installed and enabled?
 
 
-### How to find top 10 SQL?
-
-```sql
-SELECT *
-  FROM (SELECT rownum SUBSTR(a.sql_text 1 200) sql_text TRUNC(a.disk_reads/DECODE(a.executions 0 1 a.executions)) reads_per_execution a.buffer_gets a.disk_reads a.executions a.sorts a.address
-  FROM v$sqlarea a
-  ORDER BY 3 DESC)
-  WHERE rownum < 10;
-```
-
-
-### Last SQL queries executed on Oracle and user:
-```sql
-SELECT distinct vs.sql_text, vs.sharable_mem, vs.persistent_mem, vs.runtime_mem, vs.sorts, vs.executions, vs.parse_calls, vs.module, vs.buffer_gets, vs.disk_reads, vs.version_count, vs.users_opening, vs.loads, to_char(to_date(vs.first_load_time, 'YYYY-MM-DD/HH24:MI:SS'),'MM/DD HH24:MI:SS') first_load_time, rawtohex(vs.address) address, vs.hash_value hash_value , rows_processed , vs.command_type, vs.parsing_user_id , OPTIMIZER_MODE , au.USERNAME parseuser
-  FROM v$sqlarea vs , all_users au
- WHERE (parsing_user_id != 0)
-   AND (au.user_id(+)=vs.parsing_user_id)
-   AND (executions >= 1)
-   ORDER BY buffer_gets/executions DESC;
-```
-
-
-
-
-
-
-
-
 
 
 
@@ -381,9 +278,6 @@ SELECT distinct vs.sql_text, vs.sharable_mem, vs.persistent_mem, vs.runtime_mem,
 ### Oracle SQL query that shows definition data from a specific table
 •• (in this case, all tables with string "XXX")
 select * from ALL_ALL_TABLES where upper(table_name) like '%XXX%'
-
-
-
 
 
 ### Oracle SQL query to know roles and roles privileges
