@@ -2,13 +2,10 @@
 Useful Oracle database commands, scripts, tips hacks
 
 ### Version information
-This document is  writen in Markdown using MacDown/OSX and Aton/Windows using markdown preview and markdown-pdf plugins.
+This document is  writen in Markdown using MacDown/OSX and Aton/Windows.
 
-Tested on Oracle 11XE.
-Tools: Oracle SQL Developer , SQL Plus
-
-Download Oracle 11XE
-Download Oracle SQL Developer
+Oracle 11XE
+Oracle SQL Developer
 
 ## documentation
 ## **Database PL/SQL Language Reference**  
