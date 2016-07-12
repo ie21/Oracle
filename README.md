@@ -4,21 +4,11 @@ Learning library where I repo:
 * Notes from Oracle documentation
 * Links to resources on the web
 
-
-
-## Current interests:
-
-**Frequently asked questions: Oracle JVM and Java Stored Procedures**  
-http://www.oracle.com/technetwork/database/enterprise-edition/faq-jvm-java-stored-procedures-097205.html
-
-
-## Links to resources on the web:
-
-### PL/SQL
+# PL/SQL
 **PL/SQL Language Reference:**  
 http://docs.oracle.com/database/121/LNPLS/overview.htm#LNPLS001
 
-### Oracle Security:
+# Security:
 
 **Metasploit: Oracle**  
 https://github.com/rapid7/metasploit-framework/tree/master/modules/auxiliary/sqli/oracle  
