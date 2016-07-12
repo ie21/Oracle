@@ -219,36 +219,12 @@ SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
   FROM DUAL;
 ```
 
-
-**Example output:**
-
-```
-CREATE TABLE "PUBS"."BOOK"
-( "BOOK_KEY" VARCHAR2(6),
-  "PUB_KEY" VARCHAR2(4),
-  "BOOK_TITLE" VARCHAR2(80),
-
-  "BOOK_TYPE" VARCHAR2(30),
-  "BOOK_RETAIL_PRICE" VARCHAR2(30),
-  "BOOK_ADVANCES" VARCHAR2(30),
-
-  "BOOK_ROYALTIES" NUMBER(10,0),
-  "BOOK_YTD_SALES" NUMBER(10,0),
-  "BOOK_COMMENTS" VARCHAR2(200),
-
-"BOOK_DATE_PUBLISHED" DATE a
-) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 LOGGING
-STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0
-FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
-
-```
-
 **Pro Tip:**
 > Use SQL Developer to export object DDLs with point n click.
 
 **Aditional reading:**
-[Oracle documentation: DBMS_METADATA](http://docs.oracle.com/database/121/ARPLS/d_metada.htm#ARPLS026)
-[Burleson on DBMS_METADATA](http://www.dba-oracle.com/t_1_dbms_metadata.htm)
+> [Oracle documentation: DBMS_METADATA](http://docs.oracle.com/database/121/ARPLS/d_metada.htm#ARPLS026)
+> [Burleson on DBMS_METADATA](http://www.dba-oracle.com/t_1_dbms_metadata.htm)
 
 
 
@@ -263,16 +239,6 @@ FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT) TABLESPACE "USERS";
 SELECT *
   FROM dba_users;
 ```
-
-
-
-
-
-### How to find out if Java is installed and enabled?
-
-
-
-
 
 
 ### Oracle SQL query that shows definition data from a specific table
@@ -292,62 +258,13 @@ select constraint_name, column_name from sys.all_cons_columns
 
 
 
-**Output:**
+
+
+### How to find out if Java is installed and enabled?
 
 
 
-### Who is blocking who? Find Locks.
 
-### How to work with DB links?
-List All DB Links
-Add new DB Link
-Sending queries over DB Links
-### Add new user
-### Grant Permissions
-### Managing Jobs
-### Export & Backups
-
-exp userid=system/password@XE schemas=SCHEMA_NAME dumpfile=DUMP_NAME.dmp logfile=LOG_FILE_NAME.log
-
-or
-
-exp userid=system/password@XE owner=SCHEMA_NAME file=DUMP_NAME.dmp
-
-To import you can use below commands.
-
-impdp system/root@XE schemas=SCHEMA_NAME dumpfile=SCHEMA_NAME_DMP.dmp logfile=client.log
-
-or
-
-imp userid=system/root@XE full=N IGNORE=Y FILE=C:/Users/SCHEMA_NAME_DMP.dmp
-
-To know difference between exp/imp and expdp/impdp please follow below link.
-
-Original Export and Import Versus Data Pump Export and Import
-
-
-#### How to display database Recovery status:
-```sql
-SELECT *
-  FROM v$backup;
-```
-```sql
-SELECT *
-  FROM v$recovery_status;
-```
-```sql
-SELECT *
-  FROM v$recover_file;
-```
-```sql
-SELECT *
-  FROM v$recovery_file_status;
-```
-```sql
-SELECT *
-  FROM v$recovery_log;
-```
-#### expdp & impdp
 
 ## Resources
 

@@ -85,3 +85,57 @@ ORDER BY 3;
 
 SQL Script to get session data from application/database server and return in text format.
 - review other formats like XML, JSON
+
+
+### Who is blocking who? Find Locks.
+
+### How to work with DB links?
+List All DB Links
+Add new DB Link
+Sending queries over DB Links
+### Add new user
+### Grant Permissions
+### Managing Jobs
+### Export & Backups
+
+exp userid=system/password@XE schemas=SCHEMA_NAME dumpfile=DUMP_NAME.dmp logfile=LOG_FILE_NAME.log
+
+or
+
+exp userid=system/password@XE owner=SCHEMA_NAME file=DUMP_NAME.dmp
+
+To import you can use below commands.
+
+impdp system/root@XE schemas=SCHEMA_NAME dumpfile=SCHEMA_NAME_DMP.dmp logfile=client.log
+
+or
+
+imp userid=system/root@XE full=N IGNORE=Y FILE=C:/Users/SCHEMA_NAME_DMP.dmp
+
+To know difference between exp/imp and expdp/impdp please follow below link.
+
+Original Export and Import Versus Data Pump Export and Import
+
+
+#### How to display database Recovery status:
+```sql
+SELECT *
+  FROM v$backup;
+```
+```sql
+SELECT *
+  FROM v$recovery_status;
+```
+```sql
+SELECT *
+  FROM v$recover_file;
+```
+```sql
+SELECT *
+  FROM v$recovery_file_status;
+```
+```sql
+SELECT *
+  FROM v$recovery_log;
+```
+#### expdp & impdp
