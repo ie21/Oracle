@@ -2,9 +2,6 @@
 ### Exploring The Database
 -------------------------------------------
 
-
-
-
 #### DB status
 
 ```sql
@@ -21,11 +18,6 @@ INSTANCE_NAME    INSTANCE_ROLE      VERSION           STARTUP_TIME STATUS
 ---------------- ------------------ ----------------- ------------ ------------
 xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 ```
-
-
-
-
-
 
 #### List Database version information
 
@@ -190,7 +182,7 @@ SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV
 
 **sys_context()** function returns the value of parameter associated with the context namespace. USERENV is an Oracle provided namespace that describes the current session. Check the table Predefined Parameters of Namespace USERENV for the list of parameters and the expected return values.
 
-#### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
+#### Show tables with CLOB, BLOB, RAW, NCLOB columns
 ```sql
 SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') from DUAL;') a
   FROM user_tab_columns
@@ -206,7 +198,7 @@ SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') 
 
 
 
-#### How to get the DDL for a given object?
+#### Show DDL for a given object
 ```sql
 SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
   FROM DUAL;
@@ -221,23 +213,11 @@ SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
 
 
 
-
-
-
-
-
-#### How many users are connected?
 #### How to show all Oracle users and their files?
 ```sql
 SELECT *
   FROM dba_users;
 ```
-
-
-### Oracle SQL query that shows definition data from a specific table
-•• (in this case, all tables with string "XXX")
-select * from ALL_ALL_TABLES where upper(table_name) like '%XXX%'
-
 
 ### Oracle SQL query to know roles and roles privileges
 ```sql
@@ -248,15 +228,6 @@ select * from role_sys_privs
 ```sql
 select constraint_name, column_name from sys.all_cons_columns
 ```
-
-
-
-
-
-### How to find out if Java is installed and enabled?
-
-
-
 
 
 ## Resources
