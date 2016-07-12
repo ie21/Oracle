@@ -5,9 +5,7 @@
 
 
 
-#### Is the database open?
-
- I collect useful columns like instance_name and version, as well as the database startup_time and current status.
+#### DB status
 
 ```sql
 SELECT instance_name,
@@ -29,7 +27,7 @@ xe               PRIMARY_INSTANCE   11.2.0.2.0        02-JUL-16    OPEN
 
 
 
-### List Database version information
+#### List Database version information
 
   ```sql
 SELECT *
@@ -45,7 +43,7 @@ TNS for 64-bit Windows: Version 11.2.0.2.0 - Production
 NLSRTL Version 11.2.0.2.0 - Production
 ```
 
-### List installed Oracle products and version number.
+#### List installed Oracle products and version number.
 ```sql
 select * from product_component_version
 ```
@@ -59,7 +57,7 @@ TNS for 64-bit Windows:                  11.2.0.2.0                     Producti
 ```
 
 
-### List the installed database components
+#### List installed database components
 ```sql
 select * from all_registry_banners;
 ```
@@ -97,7 +95,7 @@ license_sessions_warning                 0               warning level for numbe
 Todo: Explain system parameters
 
 
-### Database Character Set Informations
+#### Database Character Set Informations
 ```sql
 SELECT *
   FROM nls_database_parameters;
@@ -150,11 +148,6 @@ TS# NAME                           INC BIG FLA ENC
   6 USER_DATA                      YES NO  YES
 ```
 
-
-
-### Exploring the user space and schemas
----------------------------------------------
-
 #### What tables are avaiable to the current user*?
 ```sql
 SELECT *
@@ -180,7 +173,7 @@ SELECT table_name
 
 Alternatively you might want to user *WHERE LIKE* to broaden the search if not exactly sure of the table_name.  
 
-### Does a colum exist in a table?
+#### Does a colum exist in a table?
 ```sql
 SELECT column_name AS FOUND
   FROM user_tab_cols
@@ -189,7 +182,7 @@ SELECT column_name AS FOUND
 
 
 
-### How to find the schema name and the DB user name from an active session?
+#### How to find the schema name and the DB user name from an active session?
 ```sql
 SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV', 'CURRENT_SCHEMA') CURRENT_SCHEMA
   FROM dual;
@@ -197,7 +190,7 @@ SELECT sys_context('USERENV', 'SESSION_USER') SESSION_USER, sys_context('USERENV
 
 **sys_context()** function returns the value of parameter associated with the context namespace. USERENV is an Oracle provided namespace that describes the current session. Check the table Predefined Parameters of Namespace USERENV for the list of parameters and the expected return values.
 
-### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
+#### How to find all tables with CLOB, BLOB, RAW, NCLOB columns?
 ```sql
 SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') from DUAL;') a
   FROM user_tab_columns
@@ -213,7 +206,7 @@ SELECT DISTINCT('SELECT DBMS_METADATA.GET_DDL(''TABLE'',''' ||table_name|| ''') 
 
 
 
-### How to get the DDL for a given object?
+#### How to get the DDL for a given object?
 ```sql
 SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
   FROM DUAL;
@@ -223,7 +216,7 @@ SELECT DBMS_METADATA.get_ddl ('TABLE', 'TABLE_NAME', 'USER_NAME')
 > Use SQL Developer to export object DDLs with point n click.
 
 **Aditional reading:**
-> [Oracle documentation: DBMS_METADATA](http://docs.oracle.com/database/121/ARPLS/d_metada.htm#ARPLS026)
+> [Oracle documentation: DBMS_METADATA](http://docs.oracle.com/database/121/ARPLS/d_metada.htm#ARPLS026)  
 > [Burleson on DBMS_METADATA](http://www.dba-oracle.com/t_1_dbms_metadata.htm)
 
 
