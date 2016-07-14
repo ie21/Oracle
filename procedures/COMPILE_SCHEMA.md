@@ -19,3 +19,11 @@ The example below shows how it is called from SQL*Plus.
 ~~~sql
 EXEC DBMS_UTILITY.compile_schema(schema => 'SCOTT');
 ~~~
+
+## Stackoverflow
+
+Instead you should only recompile invalid objects,
+~~~sql
+exec dbms_utility.compile_schema(user, false);
+~~~
+will do this.
