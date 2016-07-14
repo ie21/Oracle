@@ -1,10 +1,10 @@
-# Oracle
-Learning library where I repo:
+# Some cool Oracle development ideas & learning directions
+
+Here:
+
 * SQL Scripts
 * Notes from Oracle documentation
 * Links to resources on the web
-
-
 
 # SQL Developer
 SQL Developer’s Interface for GIT: Interacting with a GitHub Repository Part 1
