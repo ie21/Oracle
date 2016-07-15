@@ -12,7 +12,9 @@ https://galobalda.wordpress.com/2014/04/09/sql-developers-interface-for-git-inte
 
 # PL/SQL
 **PL/SQL Language Reference:**  
-http://docs.oracle.com/database/121/LNPLS/overview.htm#LNPLS001
+http://docs.oracle.com/database/121/LNPLS/overview.htm#LNPLS001,
+**Gitora - git for PL/SQL Developers**
+http://blog.gitora.com/
 
 # Security:
 **Metasploit: Oracle**  
