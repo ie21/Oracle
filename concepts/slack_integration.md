@@ -1,4 +1,4 @@
-## Oracle integration with Slack
+### Oracle integration with Slack
 
 1. setup webhook inside Slack
 2. Setup ACL inside Oracle
