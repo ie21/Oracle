@@ -1,0 +1,7 @@
+{
+    "connection_string": "##Sublime{|}##",
+    "workdir": "C:/Oracle/scripts",
+    "silent": true,
+    "path": "C:/ProgramDataMicrosoft/Windows/Start Menu/Programs/Oracle Database 11g Express Edition/sqlplus.exe",
+    "auto_set_syntax": "G:/sublime_sqlplus-master/sublime_sqlplus-master/Oracle(SQL-PL-SQLPlus).tmLanguage",
+}

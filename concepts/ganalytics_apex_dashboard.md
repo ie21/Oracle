@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 #### google analytics reporting API
 pull data from Google Analytics into Oracle and to Apex dashboard  
 http://www.ryanbrink.com/slack-google-analytics-ga-today-alerts/
