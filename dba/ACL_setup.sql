@@ -1,7 +1,7 @@
 BEGIN
 DBMS_NETWORK_ACL_ADMIN.CREATE_ACL(ACL=>'slack.xml',
   DESCRIPTION=>'Slack Oracle access control list example',
-  PRINCIPAL=>'WH',
+  PRINCIPAL=>'SCHEMETEST',
   is_grant=>TRUE,
    privilege=>'connect');
   commit;
@@ -20,7 +20,7 @@ DBMS_NETWORK_ACL_ADMIN.CREATE_ACL(ACL=>'slack.xml',
 BEGIN
    DBMS_NETWORK_ACL_ADMIN.ADD_PRIVILEGE (
     acl          => 'slack.xml',                
-    principal    => 'WH',
+    principal    => 'SCHEMETEST',
     is_grant     => TRUE, 
     privilege    => 'connect',
     position     => null);
@@ -47,4 +47,4 @@ select acl , principal , privilege , is_grant from DBA_NETWORK_ACL_PRIVILEGES;
 
 
 -- sqlplus: connect / as sysdba
-grant execute on utl_http to wh;
+grant execute on utl_http to SCHEMETEST;
