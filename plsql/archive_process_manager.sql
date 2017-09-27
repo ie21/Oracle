@@ -1,3 +1,5 @@
+-- FIRST: create local folder c:\batch_job
+
 -- as SYSDBA: 
 -- review security reasons to later REVOKE CREATE ANY DIRECTORY FROM WH;
 
@@ -81,10 +83,7 @@ dbms_scheduler.create_job (
 END;
 /
 
-
-BEGIN 
-  DBMS_SCHEDULER.ENABLE('myjob');
-END;
+-- Create Windows tash scheduller job to daily trigger the 'process.bat'
 
 
 /*
