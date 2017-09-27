@@ -37,7 +37,7 @@ set shareExists=
 -- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
 -- and puts commands into the batch file 'process.bat'
 
-CREATE OR REPLACE PROCEDURE d_create_batch IS
+CREATE OR REPLACE PROCEDURE p_create_batch IS
 
     out_file   utl_file.file_type;
     v_file     VARCHAR2(200);
@@ -63,7 +63,7 @@ END;
 
 
 BEGIN
-    d_create_batch ();
+    p_create_batch ();
 END;
 
 
@@ -73,7 +73,7 @@ BEGIN
 dbms_scheduler.create_job (
    job_name             => 'CREATE_BATCH',
    job_type             => 'PLSQL_BLOCK',
-   job_action           => 'BEGIN D_CREATE_BATCH() END;',
+   job_action           => 'BEGIN p_create_batch() END;',
    start_date           => SYSDATE,
    repeat_interval      => 'FREQ=DAILY', 
    enabled              =>  TRUE,
@@ -100,5 +100,9 @@ https://stackoverflow.com/questions/23950850/how-to-write-to-a-text-file-from-pl
 
 Granting “Create Directory” Privileges in Oracle
 https://stackoverflow.com/questions/1058756/granting-create-directory-privileges-in-oracle
+
+Examples of Using the Scheduler
+http://www.orafaq.com/wiki/DBMS_SCHEDULER
+https://docs.oracle.com/cd/B28359_01/server.111/b28310/schedadmin006.htm#ADMIN12062
 
 */
