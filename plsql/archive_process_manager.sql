@@ -1,43 +1,66 @@
 -- as SYSDBA: 
 -- review security reasons to later REVOKE CREATE ANY DIRECTORY FROM WH;
+
 GRANT CREATE ANY DIRECTORY TO wh;
 GRANT EXECUTE ON sys.utl_file TO wh;
 CREATE OR REPLACE DIRECTORY batch_folder AS 'c:\batch_job';
 GRANT READ ON DIRECTORY batch_folder TO wh;
 
--- create table with parameters 
+
+-- create table containing parameters 
 -- as WH:
-CREATE TABLE document_management (
-    "ID"            VARCHAR2(20 BYTE),
-    "DOCUMENT"      VARCHAR2(20 BYTE),
-    "FOLDER_NAME"   VARCHAR2(20 BYTE)
+
+CREATE TABLE DOCUMENT_MANAGEMENT (
+    "ID"            VARCHAR2(20 BYTE) NOT NULL ENABLE,
+    "DOCUMENT"      VARCHAR2(200 BYTE),
+    "FOLDER_NAME"   VARCHAR2(200 BYTE),
+    "CONFIG"        VARCHAR2(200 BYTE),
+    CONSTRAINT "PK_ID_DOCUMENT_MANAGEMENT" PRIMARY KEY ( "ID" )
+        
 );
 
+
+-- inserting parameters
+-- we insert into batch file a check if network share exists, if not we map it
 -- all documents (*.txt) will be moved to folder 'project01'
-INSERT INTO document_management ( id, document, folder_name ) VALUES ( '1', '*.txt', 'project01' );
+
+Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG) values ('1','*.txt','project01','@echo off
+if exist \\192.168.1.1\drive1 (set shareExists=1) else (set shareExists=0)
+if exist y:\ (set driveExists=1) else (set driveExists=0)
+if %shareExists%==1 if not %driveExists%==1 (net use y: \\192.168.1.1\drive1)
+if %shareExists%==0 if %driveExists%==1 (net use /delete y:)
+set driveExists=
+set shareExists=
+');
+
 
 -- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
 -- and puts commands into the batch file 'process.bat'
+
 CREATE OR REPLACE PROCEDURE d_create_batch IS
+
     out_file   utl_file.file_type;
     v_file     VARCHAR2(200);
     v_folder   VARCHAR2(200);
-    t_buff     VARCHAR2(200);
+    v_buff     VARCHAR2(2000);
+    v_pre      VARCHAR2(1000);
 BEGIN
     out_file   := utl_file.fopen('BATCH_FOLDER', 'process.bat', 'W');
-
     SELECT
         document,
-        folder_name
+        folder_name,
+        config
     INTO
-        v_file, v_folder
+        v_file, v_folder, v_pre
     FROM document_management;
 
-    t_buff     := 'move' ||' ' ||v_file ||' ' ||v_folder;
-    utl_file.put_line(out_file, t_buff);
+    v_buff     := v_pre ||'move' ||' ' ||v_file ||' ' ||v_folder;
+
+    utl_file.put_line(out_file, v_buff);
     utl_file.fclose(out_file);
 END;
 /
+
 
 BEGIN
     d_create_batch ();
@@ -45,6 +68,7 @@ END;
 
 
 -- create daily database job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
+
 BEGIN
 dbms_scheduler.create_job (
    job_name             => 'CREATE_BATCH',
@@ -57,9 +81,11 @@ dbms_scheduler.create_job (
 END;
 /
 
+
 BEGIN 
   DBMS_SCHEDULER.ENABLE('myjob');
 END;
+
 
 /*
 	
