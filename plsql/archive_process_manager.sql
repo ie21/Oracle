@@ -1,25 +1,24 @@
--- SYSDBA: 
+-- as SYSDBA: 
+-- review security reasons to later REVOKE CREATE ANY DIRECTORY FROM WH;
 GRANT CREATE ANY DIRECTORY TO wh;
--- REVOKE CREATE ANY DIRECTORY FROM WH;
 GRANT EXECUTE ON sys.utl_file TO wh;
-
--- WH:
 CREATE OR REPLACE DIRECTORY batch_folder AS 'c:\batch_job';
--- SYSDBA: 
 GRANT READ ON DIRECTORY batch_folder TO wh;
 
--- WH:
+-- create table with parameters 
+-- as WH:
 CREATE TABLE document_management (
     "ID"            VARCHAR2(20 BYTE),
     "DOCUMENT"      VARCHAR2(20 BYTE),
     "FOLDER_NAME"   VARCHAR2(20 BYTE)
 );
 
+-- all documents (*.txt) will be moved to folder 'project01'
 INSERT INTO document_management ( id, document, folder_name ) VALUES ( '1', '*.txt', 'project01' );
 
-/
+-- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
+-- and puts commands into the batch file 'process.bat'
 CREATE OR REPLACE PROCEDURE d_create_batch IS
-
     out_file   utl_file.file_type;
     v_file     VARCHAR2(200);
     v_folder   VARCHAR2(200);
@@ -35,7 +34,6 @@ BEGIN
     FROM document_management;
 
     t_buff     := 'move' ||' ' ||v_file ||' ' ||v_folder;
-
     utl_file.put_line(out_file, t_buff);
     utl_file.fclose(out_file);
 END;
@@ -46,7 +44,7 @@ BEGIN
 END;
 
 
--- create daily database job to get data and fill batch file 
+-- create daily database job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
 BEGIN
 dbms_scheduler.create_job (
    job_name             => 'CREATE_BATCH',
