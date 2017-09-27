@@ -1,4 +1,4 @@
-# Oracle development ideas & learning directions
+# Oracle development
 
 * SQL Scripts
 * Notes from Oracle documentation
