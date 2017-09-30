@@ -41,8 +41,10 @@ set shareExists=
 -- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
 -- and puts commands into the batch file 'process.bat'
 
+
+```sql
 CREATE OR REPLACE PROCEDURE p_create_batch IS
-~~sql
+
     out_file   utl_file.file_type;
     v_file     VARCHAR2(200);
     v_folder   VARCHAR2(200);
@@ -64,15 +66,19 @@ BEGIN
     utl_file.fclose(out_file);
 END;
 /
+```
 
 
+### Run procedure for the first time 
+```sql
 BEGIN
     p_create_batch ();
 END;
+```
 
-
+###
 -- create daily database job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
-
+```sql
 BEGIN
 dbms_scheduler.create_job (
    job_name             => 'CREATE_BATCH',
@@ -84,8 +90,9 @@ dbms_scheduler.create_job (
    comments             => 'making a batch file');
 END;
 /
+```
 
--- Create Windows tash scheduller job to daily trigger the 'process.bat'
+### Create Windows tash scheduller job to daily trigger the 'process.bat'
 
 
 /*
