@@ -1,31 +1,36 @@
-# Transfer local files to remote network share through Oracle 
+/*
+Transfer local files to remote network share through Oracle 
 
-In this implementation we use Oracle to manage files on the server file system and transfer them to a designated network shared location. 
+In this implementation we use Oracle to manage files on the server 
+file system and transfer them to a designated network shared location. 
 
-We do so by providing a controller specification inside a table, and use utl_file to place the specification inide of a batch (bat) file on the local system. 
+We do so by providing a controller specification inside a table, 
+and use utl_file to place the specification inide of a batch (bat) 
+file on the local system. 
 
-Windows Task Scheduler is used to trigger the batch file periodically and perform file management which here is to transfer all txt files to a preconfigured network share folder. 
+Windows Task Scheduler is used to trigger the batch file periodically 
+and perform file management which here is to transfer all txt files 
+to a preconfigured network share folder. 
 
 
 #### Prerequests
 
 Ceate local folder C:\batch_job
 Configre accessible network share as \\\\\<hostname>\\\<folder>
+*/
 
 
-
-#### Grants 
-```sql
+-- Grants 
 -- as SYSDBA: 
 -- review security reasons to later REVOKE CREATE ANY DIRECTORY FROM WH;
 GRANT CREATE ANY DIRECTORY TO wh;
 GRANT EXECUTE ON sys.utl_file TO wh;
 CREATE OR REPLACE DIRECTORY batch_folder AS 'c:\batch_job';
 GRANT READ ON DIRECTORY batch_folder TO wh;
-```
-#### Create table containing parameters 
-```sql
+
+-- Create table containing parameters 
 -- as WH:
+
 CREATE TABLE DOCUMENT_MANAGEMENT (
     "ID"            VARCHAR2(20 BYTE) NOT NULL ENABLE,
     "DOCUMENT"      VARCHAR2(200 BYTE),
@@ -33,12 +38,11 @@ CREATE TABLE DOCUMENT_MANAGEMENT (
     "CONFIG"        VARCHAR2(2000 BYTE),
     CONSTRAINT "PK_ID_DOCUMENT_MANAGEMENT" PRIMARY KEY ( "ID" )        
 );
-```
-#### Batch parameters
-```sql
+
+
+-- Batch parameters
 -- we insert into batch file a check if network share exists, if not we map it
 -- all documents (*.txt) will be moved to folder 'project01'
-
 
 Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG) 
     values ('1','*.txt',
@@ -51,10 +55,9 @@ Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG)
     set driveExists=
     set shareExists=
     ');
-```
 
-## Procedure 
-```sql
+
+-- Procedure 
 -- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
 -- and puts commands into the batch file 'process.bat'
 
@@ -80,18 +83,17 @@ BEGIN
     utl_file.put_line(out_file, v_buff);
     utl_file.fclose(out_file);
 END;
-```
 
 
-#### Run procedure for the first time 
-```sql
+-- Run procedure for the first time 
+
 BEGIN
     p_create_batch ();
 END;
-```
 
-#### Create daily job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
-```sql
+
+-- Create daily job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
+
 BEGIN
 dbms_scheduler.create_job (
    job_name             => 'CREATE_BATCH',
@@ -102,11 +104,9 @@ dbms_scheduler.create_job (
    enabled              =>  TRUE,
    comments             => 'making a batch file');
 END;
-```
-
-#### Create Windows tash scheduller job to daily trigger the 'process.bat'
 
 
+-- Create Windows tash scheduller job to daily trigger the 'process.bat'
 
 
 /*
