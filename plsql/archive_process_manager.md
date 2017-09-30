@@ -1,40 +1,46 @@
--- FIRST: create local folder c:\batch_job
+# Handle files on local filesystem through Oracle
 
+#### Ceate local folder c:\batch_job
+
+
+
+#### Grants 
+```sql
 -- as SYSDBA: 
 -- review security reasons to later REVOKE CREATE ANY DIRECTORY FROM WH;
-
 GRANT CREATE ANY DIRECTORY TO wh;
 GRANT EXECUTE ON sys.utl_file TO wh;
 CREATE OR REPLACE DIRECTORY batch_folder AS 'c:\batch_job';
 GRANT READ ON DIRECTORY batch_folder TO wh;
-
-
--- create table containing parameters 
+```
+#### Create table containing parameters 
+```sql
 -- as WH:
-
 CREATE TABLE DOCUMENT_MANAGEMENT (
     "ID"            VARCHAR2(20 BYTE) NOT NULL ENABLE,
     "DOCUMENT"      VARCHAR2(200 BYTE),
     "FOLDER_NAME"   VARCHAR2(200 BYTE),
     "CONFIG"        VARCHAR2(2000 BYTE),
-    CONSTRAINT "PK_ID_DOCUMENT_MANAGEMENT" PRIMARY KEY ( "ID" )
-        
+    CONSTRAINT "PK_ID_DOCUMENT_MANAGEMENT" PRIMARY KEY ( "ID" )        
 );
-
-
--- inserting parameters
+```
+#### Batch parameters
 -- we insert into batch file a check if network share exists, if not we map it
 -- all documents (*.txt) will be moved to folder 'project01'
 
-Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG) values ('1','*.txt','project01','@echo off
-if exist \\192.168.1.1\drive1 (set shareExists=1) else (set shareExists=0)
-if exist y:\ (set driveExists=1) else (set driveExists=0)
-if %shareExists%==1 if not %driveExists%==1 (net use y: \\192.168.1.1\drive1)
-if %shareExists%==0 if %driveExists%==1 (net use /delete y:)
-set driveExists=
-set shareExists=
-');
-
+```sql
+Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG) 
+    values ('1','*.txt',
+    'project01',
+    '@echo off
+    if exist \\192.168.1.1\drive1 (set shareExists=1) else (set shareExists=0)
+    if exist y:\ (set driveExists=1) else (set driveExists=0)
+    if %shareExists%==1 if not %driveExists%==1 (net use y: \\192.168.1.1\drive1)
+    if %shareExists%==0 if %driveExists%==1 (net use /delete y:)
+    set driveExists=
+    set shareExists=
+    ');
+```
 
 ## Procedure 
 
@@ -69,15 +75,14 @@ END;
 ```
 
 
-### Run procedure for the first time 
+#### Run procedure for the first time 
 ```sql
 BEGIN
     p_create_batch ();
 END;
 ```
 
-###
--- create daily database job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
+#### Create daily job to get fresh data from DOCUMENT_MANAGEMENT table and fill batch file 
 ```sql
 BEGIN
 dbms_scheduler.create_job (
@@ -92,7 +97,9 @@ END;
 /
 ```
 
-### Create Windows tash scheduller job to daily trigger the 'process.bat'
+#### Create Windows tash scheduller job to daily trigger the 'process.bat'
+
+
 
 
 /*
