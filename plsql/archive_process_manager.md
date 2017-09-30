@@ -1,6 +1,16 @@
-# Handle files on local filesystem through Oracle
+# Transfer local files to remote network share through Oracle 
 
-#### Ceate local folder c:\batch_job
+In this implementation we use Oracle to manage files on the server file system and transfer them to a designated network shared location. 
+
+We do so by providing a controller specification inside a table, and use utl_file to place the specification inide of a batch (bat) file on the local system. 
+
+Windows Task Scheduler is used to trigger the batch file periodically and perform file management which here is to transfer all txt files to a preconfigured network share folder. 
+
+
+#### Prerequests
+
+Ceate local folder C:\batch_job
+Configre accessible network share as \\\\\<hostname>\\\<folder>
 
 
 
@@ -25,10 +35,11 @@ CREATE TABLE DOCUMENT_MANAGEMENT (
 );
 ```
 #### Batch parameters
+```sql
 -- we insert into batch file a check if network share exists, if not we map it
 -- all documents (*.txt) will be moved to folder 'project01'
 
-```sql
+
 Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG) 
     values ('1','*.txt',
     'project01',
@@ -43,12 +54,10 @@ Insert into DOCUMENT_MANAGEMENT (ID,DOCUMENT,FOLDER_NAME,CONFIG)
 ```
 
 ## Procedure 
-
+```sql
 -- create a procedure that pulls data from the config table DOCUMENT_MANAGEMNT 
 -- and puts commands into the batch file 'process.bat'
 
-
-```sql
 CREATE OR REPLACE PROCEDURE p_create_batch IS
 
     out_file   utl_file.file_type;
@@ -71,7 +80,6 @@ BEGIN
     utl_file.put_line(out_file, v_buff);
     utl_file.fclose(out_file);
 END;
-/
 ```
 
 
@@ -94,7 +102,6 @@ dbms_scheduler.create_job (
    enabled              =>  TRUE,
    comments             => 'making a batch file');
 END;
-/
 ```
 
 #### Create Windows tash scheduller job to daily trigger the 'process.bat'
