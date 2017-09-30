@@ -3,5 +3,5 @@ building tools to sense and report on the environment
 
 - analytics
 - system performance
-- alertss
+- alerts
 - communication integration

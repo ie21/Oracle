@@ -1,3 +1,5 @@
+-- uses new API, this code is depreceted.
+
 declare
   p_url            varchar2(2000):= 'https://slack.com/api/chat.postMessage';
   l_http_request   utl_http.req;
