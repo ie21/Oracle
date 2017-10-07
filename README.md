@@ -2,13 +2,12 @@
 
 Scripts, notes and ideas in relation to Oracle tools and tech:
 
+Oracle Database 10/11/12
 Application Express (APEX)
-Database 10/11/12
-SQL Developer 
-SQLplus
+Oracle SQL Developer 
 Oracle JET
 Oracle REST Data Services (ORDS)
-
+SQLplus
 
 
 ## SQL Developer
