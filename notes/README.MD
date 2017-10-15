@@ -1,3 +1,11 @@
+### Sunday, October 16th, 2017
+* Exporting an Application and Application Components
+    https://docs.oracle.com/cd/E82638_01/HTMDB/deploy_export.htm#HTMDB11005
+* How to Move an Application to Another Instance
+    https://docs.oracle.com/database/121/HTMDB/deploy_how_to.htm#HTMDB11003
+* APEX Nitro
+    https://github.com/OraOpenSource/apex-nitro
+    
 #### Saturday, October 07, 2017
 * How to Search Code Using USER_SOURCE and ALL_SOURCE In SQL
     http://oraclecoder.com/tutorials/how-to-search-code-using-user_source-and-all_source-in-sql--2115
