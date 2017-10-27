@@ -1,9 +1,11 @@
-
+#### Saturday, October 21, 2017
+* Remove vertical borders from Universal Theme Interactive Reports
+    http://apexbyg.blogspot.hr/2015/10/remove-vertical-borders-from-universal.html
 
 * Building a Websheet Application in Application Express 5.1
 	http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/apex/r51/websheet_app/websheet_app.html#section3
 
-### Sunday, October 16th, 2017
+#### Sunday, October 16th, 2017
 * Exporting an Application and Application Components
     https://docs.oracle.com/cd/E82638_01/HTMDB/deploy_export.htm#HTMDB11005
 * How to Move an Application to Another Instance
