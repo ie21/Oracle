@@ -1,3 +1,9 @@
+#### Saturday, October 28, 2017
+* Hello Analytics Reporting API v4; JavaScript quickstart for web applications
+    ( Google analytics report to the client side app )
+    https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/web-js
+
+
 #### Saturday, October 21, 2017
 * Remove vertical borders from Universal Theme Interactive Reports
     http://apexbyg.blogspot.hr/2015/10/remove-vertical-borders-from-universal.html
