@@ -3,15 +3,21 @@
 Scripts, notes and ideas in relation to Oracle tools and tech:
 
 * Oracle Database 10/11/12
-* Application Express (APEX)
-* Oracle SQL Developer 
+* Oracle Application Express (APEX)
 * Oracle JET
 * Oracle REST Data Services (ORDS)
+* Oracle SQL Developer 
 * SQLplus
+
+Topics:
+
+* Application development
+* DBA
+* Data Analytics
+* ETL 
 
 #### Saturday, October 28, 2017
 * Hello Analytics Reporting API v4; JavaScript quickstart for web applications
-
 
     ( Google analytics report to the client side app )
     https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/web-js
