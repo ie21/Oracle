@@ -3,6 +3,15 @@
     ( Google analytics report to the client side app )
     https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/web-js
 
+* Oracle APEX 5: Beautiful login page in under 3 minutes
+    https://www.youtube.com/watch?v=cPoGrqv4JYQ
+
+
+* [Oracle APEX Webinar] APEX Front-End Boost
+    https://www.youtube.com/watch?v=rvKIRo466CU
+
+* s/o: Oracle APEX 5.0 - SQL query based on (multiple) checkbox values
+    https://stackoverflow.com/questions/38246123/oracle-apex-5-0-sql-query-based-on-multiple-checkbox-values
 
 #### Saturday, October 21, 2017
 * Remove vertical borders from Universal Theme Interactive Reports
