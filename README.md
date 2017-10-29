@@ -1,13 +1,13 @@
 # Oracle development
 
-Scripts, notes and ideas in relation to Oracle tools and tech:
+Folder for material in relation to Oracle web application and database development.
 
-* *Oracle Database 10/11/12*
-* Oracle Application Express (APEX)
-* Oracle JET
-* Oracle REST Data Services (ORDS)
-* Oracle SQL Developer 
-* SQLplus
+**Database:** Oracle Database 10/11/12
+**Development:** Application Express (APEX), Oracle JET, Oracle REST Data Services (ORDS) 
+**Languages:** Pl/SQL, JavaScript, HTML, CSS
+**Tools:**  SQL Developer, SQLplus
+
+
 
 ### Topics:
 
@@ -16,7 +16,7 @@ Scripts, notes and ideas in relation to Oracle tools and tech:
 * Data Analytics
 * ETL 
 
-## Updates 
+## Updates feed:
 
 #### Saturday, October 28, 2017
 * Hello Analytics Reporting API v4; JavaScript quickstart for web applications
