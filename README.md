@@ -2,19 +2,21 @@
 
 Scripts, notes and ideas in relation to Oracle tools and tech:
 
-* Oracle Database 10/11/12
+* *Oracle Database 10/11/12*
 * Oracle Application Express (APEX)
 * Oracle JET
 * Oracle REST Data Services (ORDS)
 * Oracle SQL Developer 
 * SQLplus
 
-Topics:
+### Topics:
 
 * Application development
 * DBA
 * Data Analytics
 * ETL 
+
+## Updates 
 
 #### Saturday, October 28, 2017
 * Hello Analytics Reporting API v4; JavaScript quickstart for web applications
