@@ -2,19 +2,19 @@
 
 Folder for material in relation to Oracle web application and database development.
 
+
+#### Stack: 
 **Database:** Oracle Database 10/11/12
 **Development:** Application Express (APEX), Oracle JET, Oracle REST Data Services (ORDS) 
-**Languages:** Pl/SQL, JavaScript, HTML, CSS
+**Languages:** PL/SQL, JavaScript, HTML, CSS
 **Tools:**  SQL Developer, SQLplus
 
 
 
-### Topics:
+#### Topics:
 
-* Application development
-* DBA
-* Data Analytics
-* ETL 
+* DBA, ETL, Data analytics, Data visualisation, Services integration, Application development, Optimization, Client side scripting, UX + UI
+
 
 ## Updates feed:
 
