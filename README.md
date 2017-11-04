@@ -1,9 +1,7 @@
-# Oracle development
-
-Folder for material in relation to Oracle web application and database development.
+# Oracle web application and database development.
 
 
-#### Stack: 
+### Stack: 
 **Database:** Oracle Database 10/11/12
 **Development:** Application Express (APEX), Oracle JET, Oracle REST Data Services (ORDS) 
 **Languages:** PL/SQL, JavaScript, HTML, CSS
@@ -11,12 +9,23 @@ Folder for material in relation to Oracle web application and database developme
 
 
 
-#### Topics:
+### Topics:
 
 * DBA, ETL, Data analytics, Data visualisation, Services integration, Application development, Optimization, Client side scripting, UX + UI
 
 
+**Favorites:**
+*  Application Express API Reference - Oracle Application Express Documentation, Release 5.0
+    https://docs.oracle.com/cd/E59726_01/doc.50/e39149/toc.htm
+
 ## Updates feed:
+
+#### Saturday, November 4, 2017
+* Application Express API Reference - 3 APEX_ITEM
+    https://docs.oracle.com/cd/E14373_01/apirefs.32/e13369/apex_item.htm#AEAPI210
+
+* CASE WHEN ELSE END
+    http://www.dba-oracle.com/t_case_sql_clause.htm
 
 #### Saturday, October 28, 2017
 * Hello Analytics Reporting API v4; JavaScript quickstart for web applications
