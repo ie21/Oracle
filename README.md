@@ -18,7 +18,15 @@
 *  Application Express API Reference - Oracle Application Express Documentation, Release 5.0
     https://docs.oracle.com/cd/E59726_01/doc.50/e39149/toc.htm
 
-## Updates feed:
+## Related articles
+
+#### Sunday, November 5, 2017
+* Create Textfield dynamically based on a condition
+    https://community.oracle.com/thread/4031717
+
+* Building dynamic forms
+    https://apextips.blogspot.hr/2015/05/building-dynamic-forms.html
+
 
 #### Saturday, November 4, 2017
 * Application Express API Reference - 3 APEX_ITEM
