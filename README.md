@@ -1,15 +1,18 @@
 # Oracle web application and database development.
 
 
-### Technology stack: 
+## Technology stack: 
 **Database:** Oracle Database 10/11/12
+
 **Development:** Application Express (APEX), Oracle JET, Oracle REST Data Services (ORDS) 
+
 **Languages:** PL/SQL, JavaScript, Python, HTML, CSS
+
 **Tools:**  SQL Developer, SQLplus, SQLCl 
 
 
 
-### Topics:
+## Topics:
 
 * DBA, ETL, Data analytics, Data visualisation, Services integration, Application development, Optimization, Client side scripting, UX + UI
 
