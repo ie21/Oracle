@@ -1,6 +1,5 @@
 # Oracle web application and database development.
 
-
 ## Technology stack: 
 **Database:** Oracle Database 10/11/12
 
