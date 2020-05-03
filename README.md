@@ -16,9 +16,7 @@
 * DBA, ETL, Data analytics, Data visualisation, Services integration, Application development, Optimization, Client side scripting, UX + UI
 
 
-**Favorites:**
-*  Application Express API Reference - Oracle Application Express Documentation, Release 5.0
-    https://docs.oracle.com/cd/E59726_01/doc.50/e39149/toc.htm
+
 
 ## Related articles
 
