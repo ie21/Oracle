@@ -15,9 +15,6 @@
 
 * DBA, ETL, Data analytics, Data visualisation, Services integration, Application development, Optimization, Client side scripting, UX + UI
 
-
-
-
 ## Related articles
 
 #### Sunday, November 5, 2017
