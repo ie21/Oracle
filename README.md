@@ -1,5 +1,7 @@
 # Oracle web application and database development.
 
+New year
+
 ## Technology stack: 
 **Database:** Oracle Database 10/11/12
 
@@ -8,8 +10,6 @@
 **Languages:** PL/SQL, JavaScript, Python, HTML, CSS
 
 **Tools:**  SQL Developer, SQLplus, SQLCl 
-
-
 
 ## Topics:
 
