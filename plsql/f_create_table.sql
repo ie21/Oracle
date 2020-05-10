@@ -111,9 +111,9 @@ IS
             EXECUTE IMMEDIATE 'drop sequence ' || v_seq_name;
             EXECUTE IMMEDIATE 'drop trigger '|| v_trig_name;       
         else             
-            EXECUTE IMMEDIATE v_sql_TABLE;
+            EXECUTE IMMEDIATE v_sql_table;
             EXECUTE IMMEDIATE v_sql_seq;   
-            EXECUTE IMMEDIATE V_SQL_TRIG;
+            EXECUTE IMMEDIATE v_sql_trig;
             commit;
         END IF;
 END create_table;
