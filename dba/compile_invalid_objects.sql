@@ -2,6 +2,8 @@
 -- One approach is to write a custom script to identify and compile the invalid objects. 
 -- The following example identifies and recompiles invalid packages and package bodies.
 
+-- dbms_utility.recompile_schema(USER, true, true);
+
 SET SERVEROUTPUT ON SIZE 1000000
 BEGIN
   FOR cur_rec IN
