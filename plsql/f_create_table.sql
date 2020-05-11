@@ -49,7 +49,7 @@ IS
                 v_col_type := 'DATE';
             END IF;
 
-            if UPPER(V_ARRAY(I)) LIKE '%NUM' THEN   
+            if UPPER(V_ARRAY(I)) LIKE '%NUM%' THEN   
                 v_col_type := 'NUMBER';
             END IF;
                

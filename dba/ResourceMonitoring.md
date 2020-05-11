@@ -2,12 +2,6 @@
 ## How much free space is there in all tablespaces?
 
 
-##
-
-
-
-
-
 ### How to find CPU usage by User?
 ```sql
 SELECT ss.username,
