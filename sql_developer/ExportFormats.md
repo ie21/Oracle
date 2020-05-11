@@ -1,5 +1,4 @@
 
-
 SELECT /*csv*/ * FROM scott.emp;  
 SELECT /*xml*/ * FROM scott.emp;  
 SELECT /*html*/ * FROM scott.emp;  
