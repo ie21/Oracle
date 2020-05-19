@@ -1,4 +1,12 @@
--- /ords/nova_runda/rest-api/artikli
+/*
+Oracle REST Data Services (ORDS) : Create Basic RESTful Web Services Using PL/SQL
+https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-create-basic-rest-web-services-using-plsql
+
+Oracle REST Data Services (ORDS) : Authentication
+https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-authentication
+
+*/
+
 BEGIN
   ORDS.enable_schema(
     p_enabled             => TRUE,
