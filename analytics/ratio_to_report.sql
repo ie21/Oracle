@@ -49,3 +49,37 @@ select ozndoc, partner_display_name, round(100*ratio_to_report(ukupno) over(), 2
  select partner_display_name, round(100*ratio_to_report(sum(ukupno)) over(), 2) partner_percent from doc_wh_ife
  group by partner_display_name
  order by 2 desc;
+ /
+  SELECT a.partner_display_name AS kupac 
+        , ROUND(100*ratio_to_report(sum(a.ukupno)) over(), 2) AS partner_percent 
+        , sum(a.ukupno) as fakturirano
+ --       , sum(b.ukupno) as neplaceno
+        FROM doc_wh_ife a, 
+             doc_wh_ife b
+        WHERE a.id = b.id 
+        AND a.status = 2 
+ --       AND b.status_placeno IN (0,2)
+ group by a.partner_display_name
+ order by 2 desc;
+ /
+ -- FINAL
+  WITH data AS (
+        SELECT id_mat_partners
+            , SUM(ukupno) AS iznos
+            , 0 AS neplaceno
+            FROM doc_wh_ife WHERE status = 2 AND status_placeno = 1
+            GROUP BY id_mat_partners
+            UNION ALL 
+        SELECT id_mat_partners
+            , 0 as iznos
+            , sum(ukupno) as neplaceno
+            FROM doc_wh_ife WHERE status = 2 AND status_placeno IN (0,2)
+            GROUP BY id_mat_partners )
+    SELECT b.naziv_partnera, 
+        ROUND(100 * RATIO_TO_REPORT(SUM(a.iznos)) over(), 2) AS partner_percent 
+        , SUM(a.iznos) AS fakturirano
+        , SUM(a.neplaceno) as Neplaceno
+        FROM data a, apv_mat_partners b
+        WHERE a.id_mat_partners = b.id
+    GROUP BY b.naziv_partnera
+    ORDER BY 2 desc NULLS LAST;
